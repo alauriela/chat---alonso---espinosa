@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación de carga operativa | Alonso & Espinosa</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f3f5f7;
+margin:0;
+padding:0;
+color:#1f2a36;
+}
+
+.contenedor{
+max-width:800px;
+margin:auto;
+padding:40px 20px;
+}
+
+.tarjeta{
+background:white;
+border-radius:14px;
+padding:30px;
+box-shadow:0 4px 18px rgba(0,0,0,0.08);
+margin-bottom:20px;
+}
+
+h1{
+margin-top:0;
+color:#1a2a3a;
+}
+
+.pregunta{
+margin-top:25px;
+}
+
+select{
+width:100%;
+padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+margin-top:8px;
+}
+
+button{
+margin-top:30px;
+background:#1a2a3a;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.resultado{
+margin-top:30px;
+padding:20px;
+border-radius:10px;
+background:#eef2f6;
+display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="tarjeta">
+
+<h1>Evaluación de carga operativa</h1>
+
+<p>
+Esta evaluación breve permite detectar señales de sobrecarga administrativa,
+duplicidad de tareas o procesos poco claros que consumen tiempo operativo.
+</p>
+
+<div class="pregunta">
+<label>¿Cuántas horas semanales dedica la dirección a tareas administrativas?</label>
+<select id="q1">
+<option value="0">Menos de 5 horas</option>
+<option value="1">Entre 5 y 15 horas</option>
+<option value="2">Más de 15 horas</option>
+</select>
+</div>
+
+<div class="pregunta">
+<label>¿Cuántos sistemas utilizáis para gestionar la información?</label>
+<select id="q2">
+<option value="0">Uno integrado</option>
+<option value="1">Varios sin integración</option>
+<option value="2">Muchos sistemas y documentos manuales</option>
+</select>
+</div>
+
+<div class="pregunta">
+<label>¿Se repiten tareas administrativas entre personas?</label>
+<select id="q3">
+<option value="0">No</option>
+<option value="1">A veces</option>
+<option value="2">Frecuentemente</option>
+</select>
+</div>
+
+<div class="pregunta">
+<label>¿Cuántas incidencias o urgencias surgen al día?</label>
+<select id="q4">
+<option value="0">Pocas o ninguna</option>
+<option value="1">Algunas</option>
+<option value="2">Muchas</option>
+</select>
+</div>
+
+<div class="pregunta">
+<label>¿Los procesos están definidos y documentados?</label>
+<select id="q5">
+<option value="0">Sí</option>
+<option value="1">Parcialmente</option>
+<option value="2">No</option>
+</select>
+</div>
+
+<div class="pregunta">
+<label>¿Cuánta dependencia hay de una persona clave?</label>
+<select id="q6">
+<option value="0">Baja</option>
+<option value="1">Moderada</option>
+<option value="2">Alta</option>
+</select>
+</div>
+
+<button onclick="calcular()">Ver resultado</button>
+
+<div class="resultado" id="resultado"></div>
+
+<div style="margin-top:25px">
+<a href="index.html" style="text-decoration:none;color:#1a2a3a;font-weight:bold;">
+← Volver a herramientas
+</a>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let total = 0;
+
+for(let i=1;i<=6;i++){
+total += parseInt(document.getElementById("q"+i).value);
+}
+
+let texto="";
+
+if(total <=3){
+texto = `
+<h3>✔ Carga operativa controlada</h3>
+<p>
+La carga administrativa parece razonablemente equilibrada.
+Aun así, revisar procesos periódicamente puede mejorar la eficiencia operativa.
+</p>
+`;
+}
+
+else if(total <=7){
+texto = `
+<h3>⚠ Señales de sobrecarga administrativa</h3>
+<p>
+Se detectan algunos indicios de fricción operativa o duplicidad de tareas.
+Una revisión de procesos podría mejorar el flujo de trabajo.
+</p>
+`;
+}
+
+else{
+texto = `
+<h3>⚠ Alta carga operativa</h3>
+<p>
+Existen varias señales de sobrecarga administrativa o dependencia excesiva
+de personas clave. Un análisis más profundo podría identificar mejoras
+relevantes en organización y procesos.
+</p>
+
+<hr>
+
+<b>¿Quieres profundizar en este análisis?</b>
+
+<p>
+En Alonso & Espinosa realizamos diagnósticos operativos completos para
+identificar mejoras en procesos, organización y carga administrativa.
+</p>
+
+<a href="https://forms.gle/wpVuwgG6G656S4ss7"
+style="display:inline-block;margin-top:10px;background:#1a2a3a;color:white;padding:10px 16px;border-radius:8px;text-decoration:none;">
+Solicitar diagnóstico profesional
+</a>
+`;
+}
+
+document.getElementById("resultado").style.display="block";
+document.getElementById("resultado").innerHTML = texto;
+
+}
+
+</script>
+
+</body>
+</html>
