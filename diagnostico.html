@@ -65,6 +65,29 @@ background:#eef2f6;
 display:none;
 }
 
+.nivel{
+font-size:18px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.contacto{
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid #ccc;
+}
+
+.btn-contacto{
+display:inline-block;
+margin-top:10px;
+background:#1a2a3a;
+color:white;
+padding:10px 16px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+}
+
 </style>
 </head>
 
@@ -153,22 +176,54 @@ for(let i=1;i<=6;i++){
 total += parseInt(document.getElementById("q"+i).value);
 }
 
+let nivel="";
 let texto="";
 
 if(total <=3){
-texto = "La organización operativa parece razonablemente estructurada. Aun así, siempre existen oportunidades de optimización.";
+
+nivel="🟢 Organización operativa razonablemente estructurada";
+
+texto = "La organización operativa parece razonablemente estructurada. Aun así, siempre existen oportunidades de optimización en procesos y gestión.";
+
 }
 
 else if(total <=7){
-texto = "Se detectan algunas señales de desorden operativo o falta de estandarización. Podría ser recomendable revisar procesos internos.";
+
+nivel="🟠 Señales de desorden operativo";
+
+texto = "Se detectan algunas señales de desorden operativo o falta de estandarización. Podría ser recomendable revisar procesos internos y organización del trabajo.";
+
 }
 
 else{
-texto = "Existen varias señales de desorganización operativa o dependencia excesiva de personas clave. Un diagnóstico más profundo podría aportar mejoras relevantes.";
+
+nivel="🔴 Riesgo operativo elevado";
+
+texto = "Existen varias señales de desorganización operativa o dependencia excesiva de personas clave. Un diagnóstico más profundo podría aportar mejoras relevantes en eficiencia y estructura.";
+
 }
 
 document.getElementById("resultado").style.display="block";
-document.getElementById("resultado").innerHTML = texto;
+
+document.getElementById("resultado").innerHTML = `
+<div class="nivel">${nivel}</div>
+<p>${texto}</p>
+
+<div class="contacto">
+<strong>¿Quieres profundizar en este análisis?</strong>
+
+<p>
+En Alonso & Espinosa realizamos diagnósticos operativos completos para
+identificar mejoras en procesos, organización y carga administrativa.
+</p>
+
+<a class="btn-contacto"
+href="mailto:conchialonsogarcia5@gmail.com?subject=Solicitud diagnóstico operativo&body=Hola,%20he%20realizado%20el%20diagnóstico%20operativo%20y%20me%20gustaría%20recibir%20más%20información.">
+Solicitar diagnóstico profesional
+</a>
+
+</div>
+`;
 
 }
 
