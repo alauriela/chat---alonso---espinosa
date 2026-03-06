@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluación de claridad de procesos | Alonso & Espinosa</title>
+  <meta name="description" content="Evaluación breve para detectar si los procesos de una pyme están claros, compartidos y suficientemente definidos para sostener la operativa diaria.">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f3f5f7;
+      margin:0;
+      padding:0;
+      color:#1f2a36;
+    }
+
+    .contenedor{
+      max-width:800px;
+      margin:auto;
+      padding:40px 20px;
+    }
+
+    .tarjeta{
+      background:white;
+      border-radius:14px;
+      padding:30px;
+      box-shadow:0 4px 18px rgba(0,0,0,0.08);
+      margin-bottom:20px;
+    }
+
+    h1{
+      margin-top:0;
+      color:#1a2a3a;
+    }
+
+    .pregunta{
+      margin-top:25px;
+    }
+
+    select{
+      width:100%;
+      padding:10px;
+      border-radius:6px;
+      border:1px solid #ccc;
+      margin-top:8px;
+    }
+
+    button{
+      margin-top:30px;
+      background:#1a2a3a;
+      color:white;
+      border:none;
+      padding:12px 20px;
+      border-radius:8px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .resultado{
+      margin-top:30px;
+      padding:20px;
+      border-radius:10px;
+      background:#eef2f6;
+      display:none;
+    }
+
+    .nivel{
+      font-size:18px;
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+
+    .contacto{
+      margin-top:20px;
+      padding-top:15px;
+      border-top:1px solid #ccc;
+    }
+
+    .btn-contacto{
+      display:inline-block;
+      margin-top:10px;
+      background:#1a2a3a;
+      color:white;
+      padding:10px 16px;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+  <div class="tarjeta">
+
+    <h1>Evaluación de claridad de procesos</h1>
+
+    <p>
+      Esta evaluación breve permite detectar si los procesos de trabajo están claros,
+      compartidos y suficientemente definidos para sostener la operativa diaria.
+    </p>
+
+    <div class="pregunta">
+      <label>¿Existe un proceso claro desde que entra un cliente hasta que se entrega el servicio?</label>
+      <select id="q1">
+        <option value="0">Sí, bien definido</option>
+        <option value="1">Existe parcialmente</option>
+        <option value="2">Cada caso se gestiona diferente</option>
+      </select>
+    </div>
+
+    <div class="pregunta">
+      <label>¿Las personas nuevas pueden aprender el trabajo con facilidad?</label>
+      <select id="q2">
+        <option value="0">Sí, está bastante claro</option>
+        <option value="1">Depende de quién lo explique</option>
+        <option value="2">Se aprende sobre la marcha</option>
+      </select>
+    </div>
+
+    <div class="pregunta">
+      <label>¿Los pasos clave del trabajo están documentados o definidos?</label>
+      <select id="q3">
+        <option value="0">Sí</option>
+        <option value="1">Solo algunos</option>
+        <option value="2">No de forma clara</option>
+      </select>
+    </div>
+
+    <div class="pregunta">
+      <label>¿Se sigue un criterio común para presupuestos, incidencias o decisiones operativas?</label>
+      <select id="q4">
+        <option value="0">Sí, bastante homogéneo</option>
+        <option value="1">En parte</option>
+        <option value="2">Depende mucho de cada persona</option>
+      </select>
+    </div>
+
+    <div class="pregunta">
+      <label>Cuando alguien falta, ¿otra persona puede asumir su parte del trabajo?</label>
+      <select id="q5">
+        <option value="0">Sí, sin gran problema</option>
+        <option value="1">Con dificultad</option>
+        <option value="2">No fácilmente</option>
+      </select>
+    </div>
+
+    <div class="pregunta">
+      <label>¿La forma de trabajar es similar entre personas o áreas?</label>
+      <select id="q6">
+        <option value="0">Sí, hay bastante consistencia</option>
+        <option value="1">Solo en parte</option>
+        <option value="2">No, cada uno trabaja a su manera</option>
+      </select>
+    </div>
+
+    <button onclick="calcular()">Ver resultado</button>
+
+    <div class="resultado" id="resultado"></div>
+
+    <div style="margin-top:20px;">
+      <a href="index.html" style="text-decoration:none;color:#1a2a3a;font-weight:bold;">
+        ← Volver al laboratorio
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function calcular(){
+
+  let total = 0;
+
+  for(let i=1;i<=6;i++){
+    total += parseInt(document.getElementById("q"+i).value);
+  }
+
+  let nivel="";
+  let texto="";
+
+  if(total <=3){
+
+    nivel="🟢 Procesos razonablemente claros";
+
+    texto="La empresa parece contar con una base operativa relativamente homogénea. Aun así, puede haber margen para simplificar, documentar mejor algunos pasos y reducir dependencias innecesarias.";
+
+  }
+
+  else if(total <=7){
+
+    nivel="🟠 Procesos parcialmente definidos";
+
+    texto="Se observan señales de falta de homogeneidad o claridad operativa. Puede haber margen de mejora en documentación, criterios de trabajo y continuidad entre personas o áreas.";
+
+  }
+
+  else{
+
+    nivel="🔴 Procesos poco definidos";
+
+    texto="Existen señales claras de que la forma de trabajar depende demasiado de hábitos individuales o conocimiento no compartido. Esto puede generar errores, retrabajo y dificultad para crecer con orden.";
+
+  }
+
+  document.getElementById("resultado").style.display="block";
+
+  document.getElementById("resultado").innerHTML = `
+    <div class="nivel">${nivel}</div>
+    <p>${texto}</p>
+
+    <div class="contacto">
+      <strong>¿Quieres profundizar en este análisis?</strong>
+
+      <p>
+        En Alonso & Espinosa ayudamos a pymes a ordenar procesos, clarificar criterios de trabajo
+        y reducir fricciones operativas que consumen tiempo y generan dependencia.
+      </p>
+
+      <a class="btn-contacto"
+         href="https://forms.gle/wpVuwgG6G656S4ss7"
+         target="_blank">
+         Continuar con la solicitud
+      </a>
+
+      <p style="margin-top:12px; font-size:14px; line-height:1.5;">
+        Si prefieres una vía más directa, también puedes escribirnos a
+        <strong>conchialonsogarcia5@gmail.com</strong>
+        indicando que has completado la evaluación de claridad de procesos.
+      </p>
+    </div>
+  `;
+}
+</script>
+
+</body>
+</html>
