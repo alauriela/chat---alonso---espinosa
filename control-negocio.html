@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Evaluación de control del negocio | Alonso & Espinosa</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f3f5f7;
+margin:0;
+padding:0;
+color:#1f2a36;
+}
+
+.contenedor{
+max-width:800px;
+margin:auto;
+padding:40px 20px;
+}
+
+.tarjeta{
+background:white;
+border-radius:14px;
+padding:30px;
+box-shadow:0 4px 18px rgba(0,0,0,0.08);
+margin-bottom:20px;
+}
+
+h1{
+margin-top:0;
+color:#1a2a3a;
+}
+
+.pregunta{
+margin-top:25px;
+}
+
+select{
+width:100%;
+padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+margin-top:8px;
+}
+
+button{
+margin-top:30px;
+background:#1a2a3a;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.resultado{
+margin-top:30px;
+padding:20px;
+border-radius:10px;
+background:#eef2f6;
+display:none;
+}
+
+.nivel{
+font-size:18px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.btn-contacto{
+display:inline-block;
+margin-top:10px;
+background:#1a2a3a;
+color:white;
+padding:10px 16px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="tarjeta">
+
+<h1>Evaluación de control del negocio</h1>
+
+<p>
+Esta evaluación breve permite identificar si la empresa dispone de visibilidad suficiente
+sobre su actividad económica, márgenes y resultados operativos.
+</p>
+
+<div class="pregunta">
+<label>¿Tenéis claridad sobre el margen real de cada servicio u obra?</label>
+<select id="q1">
+<option value="0">Sí, bastante claro</option>
+<option value="1">En parte</option>
+<option value="2">No realmente</option>
+</select>
+</div>
+
+<div class="pregunta">
+<label>¿Se revisan periódicamente ingresos, costes y resultados?</label>
+<select id="q2">
+<option value="0">Sí, de forma regular</option>
+<option value="1">Solo en momentos puntuales</option>
+<option value="2">No de forma estructurada</option>
+</select>
+</div>
+
+<div class="pregunta">
+<label>¿Sabéis qué servicios o proyectos generan más rentabilidad?</label>
+<select id="q3">
+<option value="0">Sí</option>
+<option value="1">Más o menos</option>
+<option value="2">No claramente</option>
+</select>
+</div>
+
+<div class="pregunta">
+<label>¿Las decisiones económicas se basan en datos o en intuición?</label>
+<select id="q4">
+<option value="0">Principalmente en datos</option>
+<option value="1">Mezcla de datos e intuición</option>
+<option value="2">Principalmente intuición</option>
+</select>
+</div>
+
+<div class="pregunta">
+<label>¿Existe seguimiento del estado económico de proyectos o trabajos?</label>
+<select id="q5">
+<option value="0">Sí</option>
+<option value="1">Solo parcialmente</option>
+<option value="2">No</option>
+</select>
+</div>
+
+<button onclick="calcular()">Ver resultado</button>
+
+<div class="resultado" id="resultado"></div>
+
+<div style="margin-top:20px;">
+<a href="index.html" style="text-decoration:none;color:#1a2a3a;font-weight:bold;">
+← Volver al laboratorio
+</a>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let total = 0;
+
+for(let i=1;i<=5;i++){
+total += parseInt(document.getElementById("q"+i).value);
+}
+
+let nivel="";
+let texto="";
+
+if(total <=3){
+
+nivel="🟢 Buen nivel de control del negocio";
+
+texto="La empresa parece contar con visibilidad razonable sobre su actividad económica. Aun así, siempre puede haber margen para mejorar indicadores y seguimiento.";
+
+}
+
+else if(total <=7){
+
+nivel="🟠 Control económico parcial";
+
+texto="Existen señales de que el control económico puede depender demasiado de revisiones puntuales o estimaciones. Puede ser útil mejorar indicadores y seguimiento operativo.";
+
+}
+
+else{
+
+nivel="🔴 Baja visibilidad del negocio";
+
+texto="Existen señales de falta de visibilidad sobre márgenes, costes o resultados reales. Esto puede dificultar decisiones estratégicas y crecimiento sostenible.";
+
+}
+
+document.getElementById("resultado").style.display="block";
+
+document.getElementById("resultado").innerHTML = `
+<div class="nivel">${nivel}</div>
+<p>${texto}</p>
+
+<p style="margin-top:14px;">
+Si quieres profundizar en este análisis, puedes solicitar una conversación exploratoria.
+</p>
+
+<a class="btn-contacto"
+href="https://forms.gle/wpVuwgG6G656S4ss7"
+target="_blank">
+Continuar con la solicitud
+</a>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
