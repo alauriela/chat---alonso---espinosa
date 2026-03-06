@@ -76,4 +76,7 @@ Las evaluaciones del laboratorio ofrecen **resultados orientativos basados en la
 
 ---
 
+👉 Abrir laboratorio  
+https://alauriela.github.io/laboratorio-de-diagnostico-empresarial/
+
 © Alonso & Espinosa
