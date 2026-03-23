@@ -72,6 +72,8 @@
       padding: 28px;
       box-shadow: 0 4px 18px rgba(0,0,0,0.08);
       transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .tarjeta:hover {
@@ -86,10 +88,10 @@
     }
 
     .tarjeta p {
-      font-size: 15px;
-      line-height: 1.6;
+      font-size: 15px;      line-height: 1.6;
       color: #556371;
       margin-bottom: 20px;
+      flex-grow: 1;
     }
 
     .estado {
@@ -101,6 +103,7 @@
       margin-bottom: 16px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      width: fit-content;
     }
 
     .disponible {
@@ -118,6 +121,7 @@
       font-weight: bold;
       font-size: 14px;
       transition: background 0.3s;
+      text-align: center;
     }
 
     .boton:hover {
@@ -156,6 +160,19 @@
     </section>
 
     <section class="rejilla">
+
+      <article class="tarjeta">
+        <span class="estado disponible">Sector Sanitario</span>
+        <h2>Gestión Clínica y Operativa</h2>
+        <p>Analiza si la carga administrativa invisible está afectando la calidad de atención al paciente en tu clínica.</p>
+        
+        <video autoplay muted loop playsinline style="width:100%; border-radius:8px; margin-bottom:20px; border:1px solid #d1d9e0;">
+          <source src="Su_clinica_crece_o_solo_esta_más_ocupada.mp4" type="video/mp4">
+          Tu navegador no soporta el vídeo.
+        </video>
+
+        <a class="boton" href="diagnostico-sanitario.html">Iniciar evaluación sanitaria</a>
+      </article>
 
       <article class="tarjeta">
         <span class="estado disponible">Disponible</span>
