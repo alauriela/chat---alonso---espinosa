@@ -14,17 +14,16 @@
 
   <title>Laboratorio de diagnóstico empresarial | Alonso & Espinosa</title>
 
-  <meta name="description" content="Laboratorio de diagnóstico empresarial para pymes. Evaluaciones breves para detectar desorden operativo, sobrecarga administrativa, madurez digital y dependencia del fundador.">
+  <meta name="description" content="Laboratorio de diagnóstico empresarial para pymes. 6 evaluaciones breves para detectar desorden operativo, sobrecarga, madurez digital y dependencia.">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="Alonso & Espinosa">
 
   <meta property="og:title" content="Laboratorio de diagnóstico empresarial">
-  <meta property="og:description" content="Evaluaciones breves para detectar desorden operativo, dependencia del fundador, madurez digital y carga operativa en pymes.">
+  <meta property="og:description" content="6 evaluaciones breves para detectar desorden operativo, dependencia del fundador y madurez digital en pymes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://alauriela.github.io/laboratorio-de-diagnostico-empresarial/">
   <meta property="og:image" content="https://alauriela.github.io/alonsoespinosa-web/ae-logotipo-principal-final.png">
 
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="https://alauriela.github.io/alonsoespinosa-web/favicon.png">
 
   <style>
     :root {
@@ -32,177 +31,75 @@
       --card: #ffffff;
       --text: #1a1a1a;
       --muted: #6b6b6b;
-      --accent: #2E4A5A;       /* Azul Oscuro Oficial */
-      --celeste: #5AD1E5;      /* Celeste Oficial */
+      --accent: #2E4A5A;
+      --celeste: #5AD1E5;
       --accent-bg: #eef3fd;
+      --line: #dfe6e9;
       --shadow: 0 10px 30px rgba(46, 74, 90, 0.08);
+      --serif: 'Lora', Georgia, serif;
     }
 
-    body {
-      margin: 0;
-      font-family: 'DM Sans', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    body { margin: 0; font-family: 'DM Sans', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 
-    .contenedor {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 50px 20px;
-    }
+    /* NAV UNIFICADO COMPLETO */
+    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 20px;height:58px;gap:12px}
+    .brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:600;font-size:15px;color:var(--accent);text-decoration:none}
+    .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--celeste);flex-shrink:0}
+    .nav-links{display:flex;gap:2px;align-items:center}
+    .nav-links a{font-size:12.5px;color:var(--muted);padding:6px 8px;border-radius:8px;transition:.15s;text-decoration:none;white-space:nowrap}
+    .nav-links a:hover{color:var(--accent);background:var(--accent-bg)}
+    .nav-cta{background:var(--accent)!important;color:#fff!important;padding:7px 14px!important;border-radius:999px!important;font-weight:500;margin-left:5px}
 
-    .cabecera {
-      background: white;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: var(--shadow);
-      margin-bottom: 30px;
-      border-left: 5px solid var(--celeste);
-    }
+    .contenedor { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    .cabecera { background: white; border-radius: 16px; padding: 40px; box-shadow: var(--shadow); margin-bottom: 30px; border-left: 5px solid var(--celeste); }
+    h1 { margin: 0 0 15px 0; font-size: 32px; color: var(--accent); font-family: var(--serif); }
+    .subtexto { font-size: 17px; color: var(--muted); max-width: 800px; }
 
-    h1 {
-      margin: 0 0 15px 0;
-      font-size: 34px;
-      color: var(--accent);
-    }
+    .badge-info { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-bg); color: var(--accent); padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-top: 15px; }
 
-    .subtexto {
-      font-size: 17px;
-      line-height: 1.6;
-      color: var(--muted);
-      max-width: 760px;
-    }
+    .rejilla { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .tarjeta { background: white; border-radius: 16px; padding: 30px; box-shadow: var(--shadow); transition: transform 0.3s ease; display: flex; flex-direction: column; border: 1px solid transparent; text-decoration: none; }
+    .tarjeta:hover { transform: translateY(-5px); border-color: var(--celeste); }
+    .tarjeta h2 { margin: 0 0 12px 0; font-size: 19px; color: var(--accent); font-family: var(--serif); }
+    .tarjeta p { font-size: 14px; color: var(--muted); margin-bottom: 20px; flex-grow: 1; }
 
-    .badge-info {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent-bg);
-      color: var(--accent);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-top: 15px;
-    }
+    .estado { display: inline-block; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; background: #e7f6ec; color: #1f7a3f; letter-spacing: 0.5px; }
 
-    .rejilla {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+    .boton { display: inline-block; text-align: center; text-decoration: none; background: var(--accent); color: white; padding: 12px 18px; border-radius: 8px; font-weight: bold; font-size: 13px; }
 
-    .tarjeta {
-      background: white;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid transparent;
-    }
+    .cierre-ciclo { margin-top: 50px; background: var(--accent); color: white; padding: 45px; border-radius: 16px; text-align: center; }
+    .cierre-ciclo h3 { font-family: var(--serif); font-size: 26px; margin-bottom: 12px; }
+    .btn-celeste { background: var(--celeste); color: var(--accent); padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; display: inline-block; margin: 10px; transition: 0.2s; }
+    .btn-celeste:hover { transform: scale(1.05); background: white; }
+    .btn-outline { border: 1px solid white; color: white; padding: 14px 28px; border-radius: 999px; text-decoration: none; display: inline-block; margin: 10px; font-weight: 500; transition: 0.2s; }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
 
-    .tarjeta:hover {
-      transform: translateY(-5px);
-      border-color: var(--celeste);
-    }
+    .pie { margin-top: 50px; padding: 40px 20px; text-align: center; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 
-    .tarjeta h2 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 21px;
-      color: var(--accent);
-    }
-
-    .tarjeta p {
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--muted);
-      margin-bottom: 20px;
-      flex-grow: 1;
-    }
-
-    .estado {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: bold;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .disponible {
-      background: #e7f6ec;
-      color: #1f7a3f;
-    }
-
-    .boton {
-      display: inline-block;
-      text-align: center;
-      text-decoration: none;
-      background: var(--accent);
-      color: white;
-      padding: 12px 18px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 14px;
-      transition: background 0.3s;
-    }
-
-    .boton:hover {
-      background: #3E6B7B;
-    }
-
-    /* MEJORA ESTRATÉGICA: CIERRE DE CICLO */
-    .cierre-ciclo {
-      margin-top: 50px;
-      background: var(--accent);
-      color: white;
-      padding: 40px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .cierre-ciclo h3 { margin: 0 0 15px 0; font-size: 24px; }
-    .cierre-ciclo p { margin-bottom: 25px; opacity: 0.9; }
-
-    .btn-celeste {
-      background: var(--celeste);
-      color: var(--accent);
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
-      transition: transform 0.3s;
-    }
-
-    .btn-celeste:hover { transform: scale(1.05); }
-
-    .pie {
-      margin-top: 50px;
-      padding-top: 30px;
-      font-size: 14px;
-      color: var(--muted);
-      text-align: center;
-      border-top: 1px solid var(--line);
-    }
-
-    @media (max-width: 760px) {
-      .rejilla { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 850px) { .nav-links { display: none; } .rejilla { grid-template-columns: 1fr; } }
   </style>
 </head>
-
 <body>
 
-  <div class="contenedor">
+  <nav>
+    <div class="nav-inner">
+      <a href="https://alauriela.github.io/alonsoespinosa-web/" class="brand">
+        <span class="brand-dot"></span> Alonso & Espinosa
+      </a>
+      <div class="nav-links">
+        <a href="https://alauriela.github.io/alonsoespinosa-web/#verticales">Sectores</a>
+        <a href="https://alauriela.github.io/alonsoespinosa-web/#casos">Casos</a>
+        <a href="https://alauriela.github.io/alonsoespinosa-web/#metodo">Metodología</a>
+        <a href="https://alauriela.github.io/alonsoespinosa-web/#equipo">Equipo</a>
+        <a href="https://alauriela.github.io/alonsoespinosa-web/recursos.html">Recursos</a>
+        <a href="https://alauriela.github.io/alonsoespinosa-web/preguntas-frecuentes.html">FAQ</a>
+        <a href="https://alauriela.github.io/alonsoespinosa-web/#contacto" class="nav-cta">Contacto</a>
+      </div>
+    </div>
+  </nav>
 
+  <div class="contenedor">
     <section class="cabecera">
       <h1>Laboratorio de diagnóstico empresarial</h1>
       <p class="subtexto">
@@ -214,57 +111,50 @@
     </section>
 
     <section class="rejilla">
-
       <article class="tarjeta">
-        <span class="estado disponible">Disponible</span>
+        <span class="estado">Disponible</span>
         <h2>Diagnóstico operativo rápido</h2>
         <p>Identifica señales de desorden operativo, falta de estructura o dependencia excesiva de personas clave.</p>
         <a class="boton" href="diagnostico.html">Iniciar evaluación</a>
       </article>
-
       <article class="tarjeta">
-        <span class="estado disponible">Disponible</span>
+        <span class="estado">Disponible</span>
         <h2>Evaluador de madurez digital</h2>
         <p>Analiza el nivel de organización digital e integración de herramientas en la gestión diaria.</p>
         <a class="boton" href="madurez-digital.html">Iniciar evaluación</a>
       </article>
-
       <article class="tarjeta">
-        <span class="estado disponible">Disponible</span>
+        <span class="estado">Disponible</span>
         <h2>Evaluación de carga operativa</h2>
         <p>Detecta sobrecarga administrativa, tareas repetitivas y posibles cuellos de botella.</p>
         <a class="boton" href="carga-operativa.html">Iniciar evaluación</a>
       </article>
-
       <article class="tarjeta">
-        <span class="estado disponible">Disponible</span>
-        <h2>Evaluación de dependencia del fundador</h2>
+        <span class="estado">Disponible</span>
+        <h2>Dependencia del fundador</h2>
         <p>Mide si las decisiones y la información dependen en exceso de una sola persona.</p>
         <a class="boton" href="dependencia-fundador.html">Iniciar evaluación</a>
       </article>
-
       <article class="tarjeta">
-        <span class="estado disponible">Disponible</span>
-        <h2>Evaluación de claridad de procesos</h2>
-        <p>Detecta si la forma de trabajar está definida y compartida entre el equipo.</p>
+        <span class="estado">Disponible</span>
+        <h2>Claridad de procesos</h2>
+        <p>Detecta si la forma de trabajar está definida y es compartida eficientemente entre el equipo.</p>
         <a class="boton" href="claridad-procesos.html">Iniciar evaluación</a>
       </article>
-
       <article class="tarjeta">
-        <span class="estado disponible">Disponible</span>
-        <h2>Evaluación de control del negocio</h2>
-        <p>Identifica la visibilidad real sobre márgenes, resultados y control operativo.</p>
+        <span class="estado">Disponible</span>
+        <h2>Control del negocio</h2>
+        <p>Identifica la visibilidad real sobre márgenes, resultados y control operativo del día a día.</p>
         <a class="boton" href="control-negocio.html">Iniciar evaluación</a>
       </article>
-
     </section>
 
     <section class="cierre-ciclo">
       <h3>¿Tienes ya tus resultados?</h3>
-      <p>Un diagnóstico sin acción es solo información. Te ayudamos a ejecutar las mejoras necesarias para tu estructura operativa.</p>
-      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-        <a href="tel:+34664138393" class="btn-celeste">Hablar con un consultor ahora</a>
-        <a href="https://alauriela.github.io/alonsoespinosa-web/" class="boton" style="background: transparent; border: 1px solid white;">Volver a la web principal</a>
+      <p>Tras el diagnóstico, el siguiente paso es la acción. Accede a herramientas gratuitas para empezar a ordenar tu estructura hoy mismo.</p>
+      <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <a href="https://alauriela.github.io/alonsoespinosa-web/recursos.html" class="btn-celeste">Ver Recursos y Plantillas</a>
+        <a href="https://alauriela.github.io/alonsoespinosa-web/#contacto" class="btn-outline">Agendar sesión de análisis</a>
       </div>
     </section>
 
@@ -272,18 +162,16 @@
       <div style="margin-bottom: 15px;">
         <strong>Alonso & Espinosa</strong> · Consultoría Operativa
       </div>
-
       <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
-        <a href="privacidad.html" style="color: var(--muted); text-decoration: none;">Privacidad</a>
-        <a href="cookies.html" style="color: var(--muted); text-decoration: none;">Cookies</a>
+        <a href="https://alauriela.github.io/alonsoespinosa-web/privacidad.html" style="color: var(--muted); text-decoration: none;">Privacidad</a>
+        <a href="https://alauriela.github.io/alonsoespinosa-web/cookies.html" style="color: var(--muted); text-decoration: none;">Cookies</a>
       </div>
-      
-      <p style="margin-top: 20px; font-size: 12px; opacity: 0.8;">
-        © 2026 Alonso & Espinosa · Responsabilidad · Autoría · Decisión
-      </p>
+      <p>© <span id="yr"></span> Alonso & Espinosa · Responsabilidad · Autoría · Decisión</p>
     </footer>
-
   </div> 
 
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
